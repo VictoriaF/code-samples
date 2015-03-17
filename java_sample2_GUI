@@ -22,8 +22,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
 
-public class Ch5PA1 extends JFrame
-{
+public class Ch5PA1 extends JFrame {
 	private String[] courseDescription = new String[5];
 	private ImageIcon computerIcon = new ImageIcon("computer.jpg");
 	private JLabel lblInstructions;
@@ -32,16 +31,14 @@ public class Ch5PA1 extends JFrame
 	private JComboBox<String> coursesCombo;
 	private JPanel westPanel, eastPanel;
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true); //set the frame so that it has a consistent look on any platform
 		Ch5PA1 frame = new Ch5PA1();
 		frame.setSize(550, 330);
 		frame.setTitle("CIT Courses and Descriptions");
 		frame.setVisible(true);
 	}
-	public Ch5PA1()
-	{
+	public Ch5PA1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //first we set the close button on the frame, so that it will close the entire program
 		createLabel();
 		createTextArea();
@@ -59,14 +56,12 @@ public class Ch5PA1 extends JFrame
 		cp.add(eastPanel, BorderLayout.EAST);	
 	}
 	//the createLabel() method constructs our label
-	public void createLabel()
-	{
+	public void createLabel() {
 		lblInstructions = new JLabel("Select a Course From the List", computerIcon, SwingConstants.CENTER);
 		lblInstructions.setFont(new Font("Verdana", Font.BOLD, 11));
 	}
 	//the createTextArea() method constructs our multiline text field
-	public void createTextArea()
-	{
+	public void createTextArea() {
 		displayArea = new JTextArea(8, 30); //8 rows, 30 columns
 		displayArea.setLineWrap(true); //contents will wrap as needed
 		displayArea.setWrapStyleWord(true); //wrap text by words (this will prevent splitting of words when wrapping to the next line)
@@ -74,8 +69,7 @@ public class Ch5PA1 extends JFrame
 		displayArea.setBorder(new EmptyBorder(10, 10, 10, 10)); //so that the contents do not butt up against the edges
 	}
 	//the createCombo() method constructs the combo box
-	public void createCombo()
-	{
+	public void createCombo() {
 		coursesCombo = new JComboBox<String>(); //here we designates that content the combo box will hold strings
 		coursesCombo.addItem("CIT 110");
 		coursesCombo.addItem("CIT 111");
@@ -83,32 +77,26 @@ public class Ch5PA1 extends JFrame
 		coursesCombo.addItem("CIT 170");
 		coursesCombo.addItem("CIT 249");
 
-		coursesCombo.addItemListener(new ItemListener()
-		{
-			public void itemStateChanged(ItemEvent e)
-			{
+		coursesCombo.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
 				setDisplay(coursesCombo.getSelectedIndex());
 			}
 		});
 		setDisplay(0); //set the default to the first course in the list
 	}
 	//the createButton() method constructs the "Close Program" button and event that occurs when this button is pressed
-	public void createButton()
-	{
+	public void createButton() {
 		btnCloseProgram = new JButton();
 		btnCloseProgram.setText("Close Program");
 		
-		btnCloseProgram.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
+		btnCloseProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				System.exit(0); //when the Exit button is pressed the program ends
 			}
 		});
 	}
 	//the createPanels() method creates our panels
-	public void createPanels()
-	{
+	public void createPanels() {
 		//westPanel holds the combo box and button "Close Program"
 		westPanel = new JPanel(new BorderLayout(0, 50)); //50 is the vertical spacing between this panel and next item
 		coursesCombo.setPreferredSize(new Dimension(50, 20));
@@ -119,36 +107,30 @@ public class Ch5PA1 extends JFrame
 		eastPanel = new JPanel(new BorderLayout());
 		eastPanel.add(lblInstructions, BorderLayout.NORTH);
 		eastPanel.add(new JScrollPane(displayArea), BorderLayout.SOUTH);
-	
 	}
 	//the createDescriptions() method will create the description that displays within the JTextArea
-	public void createDescriptions()
-	{
+	public void createDescriptions() {
 		//construct the courseDescription array elements, giving them the value passed from the getDescription()
 		for(int i = 0; i < courseDescription.length; i++)
 			courseDescription[i] = getDescription(i);
 	}
 	//getDescription() method will designate the location and name of the text files that contains courses' descriptions and set up the stream
-	public String getDescription(int i) //the method receives an integer (the index number) from the previous method
-	{
+	public String getDescription(int i) {
 		StringBuilder result = new StringBuilder(); //construct a StringBuilder object "result"
-		try
-		{
+		try {
 			//construct a new Scanner object. The Scanner object has an argument of a new File object which designates the location and name of the file to be loaded
 			Scanner input = new Scanner(new File("text/description" + i + ".txt"));
 			
 			while(input.hasNext()) //the Scanner class has a method hasNext() which allows you to search through the file, so that the entire contents of the file is appended and passed to the StringBuilder object
 				result.append(input.nextLine() + '\n'); //the input.nextLine() goes from line to line
 		}
-		catch(IOException ex)
-		{
+		catch(IOException ex) {
 			JOptionPane.showMessageDialog(null,"Error loading file! Check name and location of file.");
 		}
 		return result.toString();
 	}
 	//the setDisplay() method sets the display of the JTextArea
-	public void setDisplay(int index)
-	{
+	public void setDisplay(int index) {
 		displayArea.setText(getDescription(index)); //set the JTextArea's text to what is returned by the getDescription() method after passing the current value of index
 	}
 }
