@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>About Us</title>
+	<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/skel-noscript.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style-desktop.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/skel-panels.min.js"></script>
+</head>
+ 
+<body>
+<div id="header-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="12u">
+			<header id="header">
+			<h1><a href="#" id="logo">Jerrod L. Felice</a></h1>
+			<nav id="nav">
+				<a href="index.html">Home</a>
+				<a href="consulting.html">Consulting</a>
+				<a href="about.html" class="current-page-item">About</a>
+			</nav>
+			</header>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="main">
+	<div class="container">
+		<div class="row main-row">
+			<div class="4u">
+			<section class="left-content">
+			<h2>Jerrod L. Felice</h2>
+      <a href="#"><img src="images/np.jpg" alt="Jerrod" class="right" /></a>
+      <p>Hello and welcome to my site. My name is Jerrod L. Felice. I am a professional software developer and serve as a project manager and solutions architect for Felice Consulting.</p>
+			<p>I have 5 years of professional full time software development experience and 3 additional years of part time development experience. I also have 5 years of Business Process and I.T Process Outsourcing (BPO/ITO) management experience. </p>
+      <a href="http://www.linkedin.com/pub/jerrod-felice/46/a6a/200"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x33.png" width="160" height="33" alt="View Jerrod Felice's profile on LinkedIn"> </a>
+      <a href="mailto:jerrod@jerrodfelice.com"><img src="images/mail.png" alt="E-mail Jerrod" class="left" /></a>   
+      </section>
+			</div>
+			
+			<div class="4u">
+			<section class="middle-content">
+			<h2>Victoria B. Felice</h2>
+      <a href="#"><img src="images/VF.jpg" alt="Victoria" class="right" /></a><br />
+			<p>Victoria is a professional website developer focusing on modern website design and development.</p>
+      <p>Victoria provides full time web site development, translation and marking services for Felice Consulting.</p>
+      <a href="mailto:victoria@jerrodfelice.com"><img src="images/mail.png" alt="E-mail Victoria" class="left" /></a>
+      <a href="http://www.linkedin.com/pub/victoria-felice/84/a98/486"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x33.png" width="160" height="33" alt="View Victoria Felice's profile on LinkedIn"> </a>
+			</section>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="footer"></div>
+</body>
+</html>
