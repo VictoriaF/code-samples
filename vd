@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="javascript.js"></script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Simple Dialog Box</title>
+	<script type="text/javascript">
+	<!--
+	function popup(){
+		var name = prompt("Enter Your Name", "");
+		document.write("Your name is " + name);
+		var conf = confirm("Is your name " + name + " ?", "");
+		alert(conf);
+	}
+	-->
+	</script>
+</head>
+
+<body>
+	<p><input type="button" value="Click me" onClick="popup()"
+</body>
+</html>
+
+Css+jQuery
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Dialog Box</title>
+	<link rel="stylesheet" type="text/css" href="dialog.css" />
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="dialog.js"></script>
+</head>
+
+<body>
+<a href="javascript:popup('<p>This dialog box was created with</p><ul><li>CSS3 and </li><li>JQuery</li></ul>')">Click me!</a>
+
+<div id="dialog-overlay"></div>
+
+<div id="dialog-box">
+    <div class="dialog-content">
+        <div id="dialog-message">
+		</div>
+        <a href="#" class="button">Close</a>
+	</div>
+</div>
+</body>
+</html>
+
+
+$(document).ready(function () {    
+    $('a.btn-ok, #dialog-overlay, #dialog-box').click(function () {        
+        $('#dialog-overlay, #dialog-box').hide();   //close the dialog
+    }); 
+});
+//Pop-up dialog
+function popup(message) { 
+    // get the screen height and width  
+    var maskHeight = $(document).height();  
+    var maskWidth = $(window).width();
+    
+    // calculate values for the alignment
+    var dialogTop =  (maskHeight/4) - ($('#dialog-box').height());  
+    var dialogLeft = (maskWidth/2) - ($('#dialog-box').width()/2); 
+    
+    // assign values to the overlay and dialog box
+    $('#dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
+    $('#dialog-box').css({top:dialogTop, left:dialogLeft}).show();
+    
+    // display the message
+    $('#dialog-message').html(message);          
+}
+
+#dialog-overlay {
+    width:100%;
+    height:100%;
+    opacity: 0.8; 
+    background: gray; 
+    
+    position:absolute; 
+    top:0; left:0;
+    z-index:2; 
+	
+    display:none; /* hidden by default */
+}
+#dialog-box {
+    background: white;
+    width: 300px; 
+    position: absolute; 
+    z-index: 3; /* z-index should be the highest */
+   
+    display:none;  /* hidden by default */
+}
+#dialog-box .dialog-content {
+    /* add more styles of dialog-content here*/
+	margin: 25px;
+    font-family: Cambria, Georgia, serif;;
+    font-size: 14px; 
+}
+a.button {
+	/* style your button here */
+}
+
